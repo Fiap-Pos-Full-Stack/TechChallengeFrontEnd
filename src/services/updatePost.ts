@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_TOKEN } from "../configs/constraints"
 
 export const updatePost = async (postId : number, title:string, author:string, content:string)=> {
   const token = localStorage.getItem(LOCAL_STORAGE_TOKEN)
-    return fetch(`${API_URL}/${POSTS_ROUTE}/${UPDATE_POST_ENDPOINT}${postId}`,{
+    const response = await fetch(`${API_URL}/${POSTS_ROUTE}/${UPDATE_POST_ENDPOINT}${postId}`,{
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -12,4 +12,9 @@ export const updatePost = async (postId : number, title:string, author:string, c
         },
         body: JSON.stringify({title: title, author: author, description:content})
       })
+      if(response.status != 200)
+        {
+          throw new Error()
+        }
+        return response
 }

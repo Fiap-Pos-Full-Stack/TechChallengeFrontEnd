@@ -1,8 +1,8 @@
 
-import { Title,SubTitle } from '../components/Titles';
+import { SubSubSubTitle, SubSubTitle, SubTitle } from '../components/ui/Typography';
 import { CardsWrapper } from '../components/CardsWrapper';
 import { Form, useLoaderData } from 'react-router-dom';
-import {  IPost } from '../services/getPosts';
+import { IPost } from '../services/getPosts';
 import { searchPosts } from '../services/searchPosts';
 import Post from '../components/Post';
 import useDebouncedInput from '../hooks/useDebouncedInput';
@@ -14,53 +14,52 @@ interface Values {
 }
 
 function Posts() {
-  const [textInput, setTextInput,cancelAll] = useDebouncedInput("", 1000)
+  const [textInput, setTextInput, cancelAll] = useDebouncedInput("", 1000)
   const postsData = useLoaderData() as IPost[];
   const [posts, setPosts] = useState<IPost[]>()
   useEffect(() => {
-    console.log("postsData",postsData)
+    console.log("postsData", postsData)
     setPosts(postsData)
   }, [postsData])
 
-  const searchPost = useCallback(async (searchTerm:string)=>{
-    console.log("textInput",textInput)
+  const searchPost = useCallback(async (searchTerm: string) => {
+    console.log("textInput", textInput)
     const searchedPosts = await searchPosts(searchTerm) as unknown as IPost[]
-    console.log("searchedPosts",searchedPosts)
+    console.log("searchedPosts", searchedPosts)
     setPosts(searchedPosts)
-  },[textInput])
-  useEffect(()=>{
-    if(true)
-    {
-      console.log("textInput",textInput)
+  }, [textInput])
+  useEffect(() => {
+    if (true) {
+      console.log("textInput", textInput)
       searchPost(textInput)
     }
-  },[textInput])
+  }, [textInput])
   return (
     <>
-    <div className='w100 space-between mtb1'>
-      <Title>Posts</Title>
-      <InlineFormWrapper>
-      <Formik onSubmit={()=>{}} initialValues={{textFied:""}}>
-      <Form className='flex-center-space-between flex-row'>
-        <span>Pesquisar</span>
-      <Field
-        type="text"
-        id="textField" name="textField" 
-        placeholder="Pesquisar post"
-        onChange={(values: any )  =>{
-          setTextInput(values.target.value)
-        }}
-      />
-    </Form>
-    </Formik>
-    </InlineFormWrapper>
-    </div>
-    {textInput ? <div><SubTitle>Resultados: {textInput}</SubTitle></div> : ""}
+      <div className='w100 space-between mtb1 mobile-col'>
+        <SubTitle className='color-black'>Posts</SubTitle>
+        <InlineFormWrapper>
+          <Formik onSubmit={() => { }} initialValues={{ textFied: "" }}>
+            <Form className='flex-center-space-between flex-row'>
+              <SubSubTitle>Pesquisar</SubSubTitle>
+              <Field
+                type="text"
+                id="textField" name="textField"
+                placeholder="Pesquisar post"
+                onChange={(values: any) => {
+                  setTextInput(values.target.value)
+                }}
+              />
+            </Form>
+          </Formik>
+        </InlineFormWrapper>
+      </div>
+      {textInput ? <div><SubSubSubTitle>Resultados: {textInput}</SubSubSubTitle></div> : ""}
       <CardsWrapper>
         {
-          posts && posts.length> 0 ? posts.map((post, id) => {
+          posts && posts.length > 0 ? posts.map((post, id) => {
             return (
-              <Post post={post}/>
+              <Post post={post} />
             )
           }) : "Não há nenhum post"
         }

@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    color: rgb(${props=> props.theme.colors.black});
 }
 ol, ul {
 	list-style: none;
@@ -94,6 +95,33 @@ input[type="search"]::-webkit-search-cancel-button {
     {
         display:flex;
         justify-content: flex-end;
+    }
+    .mobile-col
+    {
+        flex-direction: row;
+        @media (max-width: ${({ theme }) => theme.mdBreakpoint}px) {
+            flex-direction: column;
+        }
+    }
+    .color-primary
+    {
+        color: rgb(${props=> props.theme.colors.primary});
+    }
+    .color-secondary
+    {
+        color: rgb(${props=> props.theme.colors.secondary});
+    }
+    .color-black
+    {
+        color: rgb(${props=> props.theme.colors.black});
+    }
+    .bg-error
+    {
+        background-color: rgb(${props=> props.theme.colors.error});
+    }
+    .bg-sucess
+    {
+        background-color: rgb(${props=> props.theme.colors.sucess});
     }
 `;
 

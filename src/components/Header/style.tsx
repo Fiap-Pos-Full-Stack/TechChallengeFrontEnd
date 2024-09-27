@@ -17,17 +17,7 @@ export const HeaderWrapper  = styled.div`
     margin: 16px 30px;
     gap: 27px;
 `
-export const MenuIconWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 6px;
 
-`
-export const Logo = styled.h1`
-   color:  rgb(${props => props.theme.colors.secondary});
-    font-size: 3rem;
-`
 export const Menu = styled.ul`
     color:  rgb(${props => props.theme.colors.secondary});
     margin-left: auto;

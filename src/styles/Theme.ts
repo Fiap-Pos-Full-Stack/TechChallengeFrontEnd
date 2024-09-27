@@ -6,6 +6,8 @@ type Theme = {
         white: string;
         black: string;
         bgColor: string;
+        error:string;
+        sucess:string;
     }
     padding: {
         pd4: string,

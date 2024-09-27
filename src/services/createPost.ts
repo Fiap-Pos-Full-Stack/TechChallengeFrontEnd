@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_TOKEN } from "../configs/constraints"
 
 export const createPost = async ( title:string, author:string, content:string)=> {
   const token = localStorage.getItem(LOCAL_STORAGE_TOKEN)
-    return fetch(`${API_URL}/${POSTS_ROUTE}/`,{
+    const response = await fetch(`${API_URL}/${POSTS_ROUTE}/`,{
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -12,4 +12,9 @@ export const createPost = async ( title:string, author:string, content:string)=>
         },
         body: JSON.stringify({title: title, author: author, description:content})
       })
+      if(response.status != 201)
+      {
+        throw new Error()
+      }
+      return response.json()
 }

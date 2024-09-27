@@ -1,5 +1,6 @@
 import { IComment, IPost } from "../../services/getPosts";
-import { CommentWrapper,CommentTitle,CommentContent } from "./style";
+import { parserDateWithHours } from "../../utils/parser";
+import { CommentWrapper,CommentTitle,CommentContent,CommentHeader } from "./style";
 
 
 type CommentProps = {
@@ -9,7 +10,11 @@ type CommentProps = {
 const Comment = ({ comment }: CommentProps) => {
     return (
         <CommentWrapper className="w100">
-            <CommentTitle>{comment?.name}</CommentTitle>
+            <CommentHeader>
+                <CommentTitle>{comment?.name}</CommentTitle>
+                <time>{parserDateWithHours(comment?.created)}</time>
+            </CommentHeader>
+            
             <CommentContent>
                 {comment?.comentary}
             </CommentContent>

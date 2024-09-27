@@ -1,5 +1,6 @@
 import { PostThumb, PostWrapper ,PostInfo,PostTitle,PostContent} from "./style"
 import { IPost } from "../../services/getPosts";
+import { parserDate } from "../../utils/parser";
 
 type PostProps = {
     post : IPost | undefined
@@ -12,6 +13,7 @@ const SinglePost =({ post,isTeacherPublishier=false}: PostProps) =>{
              <article className="w100" key={"post-" + post?.id}>
                 <PostTitle>{post?.title}</PostTitle>
                 <PostThumb>
+                    <time>{parserDate(post?.created)}</time>
                     <img src={post?.thumb || "https://blog.megajogos.com.br/wp-content/uploads/2018/07/no-image.jpg"} />
                 </PostThumb>
                 <PostInfo className="w100 space-between">

@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import SmallLink from "../SmallLink";
-
 
 export const PostWrapper  = styled.article`
     width: 100%;

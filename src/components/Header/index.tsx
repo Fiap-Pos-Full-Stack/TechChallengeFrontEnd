@@ -1,15 +1,13 @@
-import { HeaderContainer, HeaderWrapper, MenuIconWrapper, Logo, Menu } from "./style"
-import useMenu from "../../hooks/useMenu"
-import OpenCloseIcon from "../../assets/openCloseIcon"
+import { HeaderContainer, HeaderWrapper,  Menu } from "./style"
 import useAuth from "../../hooks/useAuth";
+import { Title } from "../ui/Typography";
 
 const Header =() =>{
-    const {open, setOpen} = useMenu();
     const {token, setToken} = useAuth();
     return (
         <HeaderContainer>
             <HeaderWrapper>
-                <Logo>{token ? "Area Logada": "Blog"}</Logo>
+                <Title className="color-secondary">{token ? "Área Logada": "Blog"}</Title>
                 <Menu>
                     {token ? <li><a href="/admin">Dashboard</a></li>: ""}
                     <li><a href="/">Posts</a></li>

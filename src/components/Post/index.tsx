@@ -1,20 +1,12 @@
-import { PostThumb, PostWrapper ,PostInfo,PostTitle} from "./style"
-import useMenu from "../../hooks/useMenu"
-import OpenCloseIcon from "../../assets/openCloseIcon"
-import Posts from "../../routes/posts";
+import { PostThumb, PostWrapper ,PostInfo,PostTitle, PostDescription,PostReadMore} from "./style"
 import { IPost } from "../../services/getPosts";
-import SmallLink from "../SmallLink";
+import { SmallLink } from "../ui/Links";
+import { parserDate } from "../../utils/parser";
 
 type PostProps = {
     post : IPost | undefined
 }
-const parserDate = (date: string | undefined) :string =>{
-    if(!date){
-        return ""
-    }
-    const dateObj = new Date(date)
-    return `${dateObj.getDay()}/${dateObj.getMonth()+1}/${dateObj.getFullYear()}`
-}
+
 const Post =({ post}: PostProps) =>{
     return (
         <PostWrapper href={"/post/" + post?.id}>
@@ -28,7 +20,8 @@ const Post =({ post}: PostProps) =>{
                     <div>Autor: {post?.author}</div>
                 </PostInfo>
                 <PostTitle>{post?.title}</PostTitle>
-                <div className="flex-end"><SmallLink>Leia mais</SmallLink></div>
+                <PostDescription>{post?.description.substring(0,80)} [...]</PostDescription>
+                <PostReadMore><div className="flex-end"><SmallLink>Leia mais</SmallLink></div></PostReadMore>
               </article>
         </PostWrapper>
     );

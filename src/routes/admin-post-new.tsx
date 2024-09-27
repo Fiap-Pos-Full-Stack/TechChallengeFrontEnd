@@ -1,5 +1,5 @@
 
-import { Title } from '../components/Titles';
+import { SubTitle } from '../components/ui/Typography';
 import { Field, Form, Formik, FormikHelpers } from 'formik';
 import FormWrapper from '../components/FormWrapper';
 import { useCallback } from 'react';
@@ -9,7 +9,8 @@ import useAuth from '../hooks/useAuth';
 import { IPost } from '../services/getPosts';
 import { updatePost } from '../services/updatePost';
 import { createPost } from '../services/createPost';
-
+import useAlert from '../hooks/useAlert';
+import { AlertType } from '../context/alertContext';
 interface Values {
   title: string;
   content: string;
@@ -18,25 +19,35 @@ interface Values {
 
 
 function AdminPostNew() {
+  const navigate = useNavigate();
+  const { dispatchAlert } = useAlert()
   return (
     <>
-      <Title>Criar Post</Title>
+      <SubTitle>Criar Post</SubTitle>
       <FormWrapper>
-        <Formik initialValues={{title: "",content: "", author: ""}}
-          onSubmit={(values: Values,{ setSubmitting }: FormikHelpers<Values>) => {
-            createPost(values.title, values.author,values.content)
-            setSubmitting(false);
+        <Formik initialValues={{ title: "", content: "", author: "" }}
+          onSubmit={async (values: Values, { setSubmitting }: FormikHelpers<Values>) => {
+            try {
+              const response = await createPost(values.title, values.author, values.content)
+              setSubmitting(false);
+              dispatchAlert("Criado com sucesso", AlertType.SUCESS)
+              navigate('/admin')
+            }
+            catch {
+              dispatchAlert("Error ao criar post", AlertType.ERROR)
+            }
+
           }}
         >
           <Form>
             <label htmlFor="title">Titulo</label>
-            <Field id="title" name="title" placeholder="Titulo" />
+            <Field required id="title" name="title" placeholder="Titulo" />
 
             <label htmlFor="author">Autor</label>
-            <Field id="author" name="author" placeholder="Autor" />
+            <Field required id="author" name="author" placeholder="Autor" />
 
             <label htmlFor="content">Conteudo</label>
-            <Field as="textarea" id="content" name="content" placeholder="Conteudo" />
+            <Field required as="textarea" id="content" name="content" placeholder="Conteudo" />
 
             <button type="submit">Criar</button>
           </Form>

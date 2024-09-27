@@ -9,5 +9,9 @@ export const doLogin = async (username: string, password: string)  => {
         },
         body: JSON.stringify({username: username, password: password})
       })
+      if (response.status !=200)
+      {
+        throw new Error()
+      }
       return response.json()
 }

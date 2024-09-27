@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SmallLink from "../SmallLink";
 
 
 export const PostWrapper  = styled.article`
@@ -12,6 +11,19 @@ export const PostWrapper  = styled.article`
 export const PostThumb = styled.div`
     width: 100%;
     height: 350px;
+    position: relative;
+
+    & time
+    {
+        font-size: 0.8rem;
+        color: rgb(${props=> props.theme.colors.secondary});
+        background-color: rgb(${props=> props.theme.colors.primary});
+        padding: 5px 8px;
+        position: absolute;
+        top:10px;
+        right:10px;
+        border-radius: 5px;
+    }
 
     & img{
         object-fit:cover;  /* This is the mainly problematic line*/

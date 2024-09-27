@@ -1,7 +1,19 @@
 import styled from "styled-components";
-import SmallLink from "../SmallLink";
 
 
+
+
+export const CommentHeader  = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+& time
+{
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+`
 export const CommentWrapper  = styled.a`
     width: 100%;
     display: flex;

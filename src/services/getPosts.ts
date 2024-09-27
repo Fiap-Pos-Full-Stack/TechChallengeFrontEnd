@@ -8,6 +8,7 @@ export interface IComment {
     id: number;
     name: string,
     comentary: string;
+    created:string;
 }
 export interface IPost {
     id: number;
