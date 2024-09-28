@@ -24,5 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Babel plugin
+        run: npm install --save-dev @babel/plugin-proposal-private-property-in-object        
+
       - name: Build
         run: npm run build
