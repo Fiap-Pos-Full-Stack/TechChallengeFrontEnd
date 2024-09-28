@@ -11,6 +11,7 @@ import { updatePost } from '../services/updatePost';
 import { createPost } from '../services/createPost';
 import useAlert from '../hooks/useAlert';
 import { AlertType } from '../context/alertContext';
+import { SmallLinkEdit } from '../components/ui/Links';
 interface Values {
   title: string;
   content: string;
@@ -23,7 +24,10 @@ function AdminPostNew() {
   const { dispatchAlert } = useAlert()
   return (
     <>
-      <SubTitle>Criar Post</SubTitle>
+      <div className='w100 space-between mtb1 mobile-col'>
+        <SubTitle>Criar Post</SubTitle>
+        <div className="flex-center-space-between"><SmallLinkEdit onClick={() => navigate(-1)}>Voltar</SmallLinkEdit></div>
+      </div>
       <FormWrapper>
         <Formik initialValues={{ title: "", content: "", author: "" }}
           onSubmit={async (values: Values, { setSubmitting }: FormikHelpers<Values>) => {
@@ -49,7 +53,7 @@ function AdminPostNew() {
             <label htmlFor="content">Conteudo</label>
             <Field required as="textarea" id="content" name="content" placeholder="Conteudo" />
 
-            <button className='buttonCriar'  type="submit">Criar</button>
+            <button className='buttonCriar' type="submit">Criar</button>
           </Form>
         </Formik>
       </FormWrapper>

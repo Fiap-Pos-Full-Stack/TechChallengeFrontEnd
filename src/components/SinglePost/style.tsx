@@ -54,7 +54,14 @@ export const PostContent = styled.p`
 export const PostOperations = styled.div`
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
+
+    & .admin-operations
+    {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+    }
 `

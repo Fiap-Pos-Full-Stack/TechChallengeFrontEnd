@@ -22,12 +22,14 @@ const SinglePost = ({ post, isTeacherPublishier = false }: PostProps) => {
     return (
         <PostWrapper>
             <article className="w100" key={"post-" + post?.id}>
+                <PostOperations>
+                <div className="flex-center-space-between"><SmallLinkEdit onClick={() => navigate(-1)}>Voltar</SmallLinkEdit></div>
                 {
-                    isTeacherPublishier && <PostOperations>
+                    isTeacherPublishier && <div className="admin-operations">
                         <SmallLinkDel onClick={() => onDeletePost(post?.id || 0)}>Deletar</SmallLinkDel>
-                        <SmallLinkEdit href={"../../admin/post/edit/" + post?.id}>Editar</SmallLinkEdit>
+                        <SmallLinkEdit href={"../../admin/post/edit/" + post?.id}>Editar</SmallLinkEdit></div>}
                     </PostOperations>
-                }
+                
                 <PostTitle>{post?.title}</PostTitle>
                 <PostThumb>
                     <time>{parserDate(post?.created)}</time>

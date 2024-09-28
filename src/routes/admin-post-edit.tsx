@@ -10,6 +10,7 @@ import { IPost } from '../services/getPosts';
 import { updatePost } from '../services/updatePost';
 import useAlert from '../hooks/useAlert';
 import { AlertType } from '../context/alertContext';
+import { SmallLinkEdit } from '../components/ui/Links';
 
 interface Values {
   title: string;
@@ -24,7 +25,11 @@ function AdminPostEdit() {
   const postData = useLoaderData() as IPost;
   return (
     <>
-      <SubTitle>Editar Post</SubTitle>
+      <div className='w100 space-between mtb1 mobile-col'>
+          <SubTitle>Editar Post</SubTitle>
+        <div className="flex-center-space-between"><SmallLinkEdit onClick={() => navigate(-1)}>Voltar</SmallLinkEdit></div>
+      </div>
+      
       <FormWrapper>
         <Formik initialValues={{title: postData.title,content: postData.description, author: postData.author}}
           onSubmit={async (values: Values,{ setSubmitting }: FormikHelpers<Values>) => {
