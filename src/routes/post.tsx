@@ -17,7 +17,7 @@ interface Values {
   comentary: string;
 }
 function Post() {
-
+  const {authorId} = useAuth();
   const { dispatchAlert } = useAlert()
   const postData = useLoaderData() as IPost;
   const [post, setPost] = useState<IPost>()
@@ -28,7 +28,7 @@ function Post() {
   }, [postData])
   return (
     <>
-      <SinglePost post={post} />
+      <SinglePost post={post} isTeacherPublishier={authorId === post?.teacher.id} />
       <SubTitle>Adicione um novo comentário</SubTitle>
       <FormWrapper>
         <Formik

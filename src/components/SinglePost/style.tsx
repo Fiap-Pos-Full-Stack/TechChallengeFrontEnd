@@ -50,3 +50,11 @@ export const PostContent = styled.p`
     line-height: 1.8rem;
     margin: 20px 0;
 `
+
+export const PostOperations = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+`

@@ -23,7 +23,6 @@ function AlertProvider({ initial = "",children }: AlertProviderProps) {
     const [onYes, setOnYes] = useState<() => void>();
     const [onNo, setOnNo] = useState<() => void>();
     const [open, setOpen] = useState<boolean>(false);
-    console.log("alertText",alertText)
     const [alertType, setAlertType] = useState<AlertType>(AlertType.YES_NO);
     const dispatchAlert = useCallback((alertText:string, alertType:AlertType, onYes?:() => void,onNo?:() => void)=>{
         setAlertText(alertText)

@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode, useCallback } from 'react';
+import React, { createContext, useState, ReactNode, useCallback, useEffect } from 'react';
 import { LOCAL_STORAGE_TOKEN, LOCAL_STORAGE_USERID, LOCAL_STORAGE_USERNAME } from '../configs/constraints';
 import { jwtDecode } from 'jwt-decode';
 type UserToken = {
@@ -27,6 +27,20 @@ function AuthProvider({ initial = "",children }: AuthProviderProps) {
     const [token, setToken] = useState<string>(initial);
     const [authorId, setAuthorId] = useState<number>(0);
     const [authorName, setAuthorName] = useState<string>("");
+
+    useEffect(()=>{
+        if(token)
+        {
+            try{
+                const user = jwtDecode<UserToken>(token); // decode your token here
+                setToken(token)
+                setAuthorId(user._id || 0)
+                setAuthorName(user.username||"")
+            }
+            catch{  }
+        }
+
+    },[token])
     const login = useCallback((authToken:string)=>{
         const user = jwtDecode<UserToken>(authToken); // decode your token here
         localStorage.setItem(LOCAL_STORAGE_TOKEN, authToken)

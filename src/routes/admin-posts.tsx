@@ -21,7 +21,7 @@ function AdminPosts() {
             {
               posts.map((post, id) => {
                 return (
-                  <AdminPost post={post}/>
+                  <AdminPost key={id} post={post}/>
                 )
               })
             }

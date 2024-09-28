@@ -18,19 +18,15 @@ function Posts() {
   const postsData = useLoaderData() as IPost[];
   const [posts, setPosts] = useState<IPost[]>()
   useEffect(() => {
-    console.log("postsData", postsData)
     setPosts(postsData)
   }, [postsData])
 
   const searchPost = useCallback(async (searchTerm: string) => {
-    console.log("textInput", textInput)
     const searchedPosts = await searchPosts(searchTerm) as unknown as IPost[]
-    console.log("searchedPosts", searchedPosts)
     setPosts(searchedPosts)
   }, [textInput])
   useEffect(() => {
     if (true) {
-      console.log("textInput", textInput)
       searchPost(textInput)
     }
   }, [textInput])

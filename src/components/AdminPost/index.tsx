@@ -15,7 +15,7 @@ const AdminPost =({ post}: AdminPostProps) =>{
     const { dispatchAlert } = useAlert()
     const navigate = useNavigate();
     const onDeletePost = useCallback((postId: number)=>{
-        dispatchAlert("Você deseja mesmo deletar o post?",AlertType.YES_NO,()=>{deletePost(postId);navigate("/admin") }, ()=>{} )
+        dispatchAlert("Você deseja mesmo deletar o post?",AlertType.YES_NO,async ()=>{await deletePost(postId);navigate("/admin") }, ()=>{} )
     },[])
     return (
         <PostWrapper className="w100" key={"post-" + post?.id}>

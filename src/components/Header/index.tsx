@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import { Title } from "../ui/Typography";
 
 const Header =() =>{
-    const {token, setToken} = useAuth();
+    const {token} = useAuth();
     return (
         <HeaderContainer>
             <HeaderWrapper>
