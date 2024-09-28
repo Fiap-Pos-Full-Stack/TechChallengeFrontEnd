@@ -1,7 +1,7 @@
 import { PostWrapper ,PostOperations,PostTitle} from "./style"
 import { IPost } from "../../services/getPosts";
 import { deletePost } from "../../services/deletePost";
-import { SmallLink } from "../ui/Links";
+import { SmallLink, SmallLinkError } from "../ui/Links";
 import { useCallback } from "react";
 import useAlert from "../../hooks/useAlert";
 import { AlertType } from "../../context/alertContext";
@@ -21,7 +21,7 @@ const AdminPost =({ post}: AdminPostProps) =>{
         <PostWrapper className="w100" key={"post-" + post?.id}>
                 <a href={"/post/" + post?.id}><PostTitle>{post?.title}</PostTitle></a>
                 <PostOperations>
-                    <SmallLink onClick={()=>onDeletePost(post?.id || 0)}>Deletar</SmallLink>
+                    <SmallLinkError onClick={()=>onDeletePost(post?.id || 0)}>Deletar</SmallLinkError>
                     <SmallLink href={"admin/post/edit/"+post?.id}>Editar</SmallLink>
                 </PostOperations>
 

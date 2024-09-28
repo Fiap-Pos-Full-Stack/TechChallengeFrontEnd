@@ -38,7 +38,21 @@ export const SmallLink = styled.a`
     }
 `
 
+export const SmallLinkError = styled.a`
+    background-color: rgb(${props=> props.theme.colors.error});
+    color: rgb(${props=> props.theme.colors.white});
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    transition: all linear 0.2s;
+    cursor: pointer;
 
+    &:hover
+    {
+        color: rgb(${props=> props.theme.colors.error});
+        background-color: rgb(${props=> props.theme.colors.white});
+    }
+`
 
 
 export const BigLink = styled.a`
