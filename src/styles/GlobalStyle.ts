@@ -101,6 +101,10 @@ input[type="search"]::-webkit-search-cancel-button {
         flex-direction: row;
         @media (max-width: ${({ theme }) => theme.mdBreakpoint}px) {
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            width: 100%;
         }
     }
     .color-primary

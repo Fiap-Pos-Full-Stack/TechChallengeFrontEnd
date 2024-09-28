@@ -51,8 +51,12 @@ export const SmallLinkDel = styled.a`
         background-color: #5f0303;
         transform: scale(1.2);
     }
+    &:hover
+    {
+        color: rgb(${props=> props.theme.colors.error});
+        background-color: rgb(${props=> props.theme.colors.white});
+    }
 `
-
 export const SmallLinkEdit = styled.a`
     background-color: #1873D3;
     color: white;
@@ -69,9 +73,6 @@ export const SmallLinkEdit = styled.a`
         transform: scale(1.2);
     }
 `
-
-
-
 
 export const BigLink = styled.a`
     background-color: rgb(${props=> props.theme.colors.sucess});
