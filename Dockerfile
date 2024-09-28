@@ -12,3 +12,4 @@ COPY . .
 # Build da app
 RUN npm run build
 
+EXPOSE 3000
