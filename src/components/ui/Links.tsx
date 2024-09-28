@@ -28,7 +28,6 @@ export const SmallLink = styled.a`
     border-radius: 5px;
     transition: all linear 0.2s;
     cursor: pointer;
-
     &:hover
     {
         color: rgb(${props=> props.theme.colors.primary});
@@ -44,17 +43,11 @@ export const SmallLinkDel = styled.a`
     border-radius: 5px;
     transition: all linear 0.2s;
     cursor: pointer;
-
     &:hover
     {
         color: white;
         background-color: #5f0303;
         transform: scale(1.2);
-    }
-    &:hover
-    {
-        color: rgb(${props=> props.theme.colors.error});
-        background-color: rgb(${props=> props.theme.colors.white});
     }
 `
 export const SmallLinkEdit = styled.a`
