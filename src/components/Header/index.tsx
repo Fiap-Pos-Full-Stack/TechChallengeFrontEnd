@@ -6,9 +6,9 @@ const Header =() =>{
     const {token} = useAuth();
     return (
         <HeaderContainer>
-            <HeaderWrapper>
+            <HeaderWrapper className="mobile-col">
                 <Title className="color-secondary">{token ? "Área Logada": "Blog"}</Title>
-                <Menu>
+                <Menu className="mobile-col">
                     {token ? <li><a href="/admin">Administração</a></li>: ""}
                     <li><a href="/">Posts</a></li>
                     <li>{!token ? <a href="/login">Login</a>: <a href="/logout">Sair</a>}</li>
