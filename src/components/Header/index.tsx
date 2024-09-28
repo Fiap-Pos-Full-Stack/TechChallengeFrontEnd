@@ -9,9 +9,9 @@ const Header =() =>{
             <HeaderWrapper>
                 <Title className="color-secondary">{token ? "Área Logada": "Blog"}</Title>
                 <Menu>
-                    {token ? <li><a href="/admin">Dashboard</a></li>: ""}
+                    {token ? <li><a href="/admin">Administração</a></li>: ""}
                     <li><a href="/">Posts</a></li>
-                    <li>{!token ? <a href="/login">Login</a>: <a href="/logout">Logout</a>}</li>
+                    <li>{!token ? <a href="/login">Login</a>: <a href="/logout">Sair</a>}</li>
                 </Menu>
             </HeaderWrapper>
         </HeaderContainer>

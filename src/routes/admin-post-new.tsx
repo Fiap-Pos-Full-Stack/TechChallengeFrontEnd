@@ -49,7 +49,7 @@ function AdminPostNew() {
             <label htmlFor="content">Conteudo</label>
             <Field required as="textarea" id="content" name="content" placeholder="Conteudo" />
 
-            <button type="submit">Criar</button>
+            <button className='buttonCriar'  type="submit">Criar</button>
           </Form>
         </Formik>
       </FormWrapper>

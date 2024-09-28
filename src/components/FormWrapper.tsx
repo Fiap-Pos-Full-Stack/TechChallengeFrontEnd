@@ -30,6 +30,36 @@ export const FormWrapper = styled.div`
         background-color: rgb(${props=> props.theme.colors.secondary});
 
     }
+    & .buttonCriar {
+        background-color: rgb(${props=> props.theme.colors.sucess});
+        color: white;
+        padding: 8px 12px;
+        font-size: 1.3rem;
+        border-radius: 5px;
+        transition: all linear 0.2s;
+        display: inline ;
+        width: auto;
+    }
+    & .buttonCriar:hover{
+        color: white;
+        background-color: #02aa0a;
+        transform: scale(1.05);
+    }
+    & .buttonAtualizar {
+        background-color: #2d62f1;
+        color: white;
+        padding: 8px 12px;
+        font-size: 1.3rem;
+        border-radius: 5px;
+        transition: all linear 0.2s;
+        display: inline ;
+        width: auto;
+    }
+    & .buttonAtualizar:hover{
+        color: white;
+        background-color: #032b9b;
+        transform: scale(1.05);
+    }
     & input::placeholder, & textarea::placeholder {
         color: rgb(${props=> props.theme.colors.primary});
         opacity: 0.4;

@@ -49,7 +49,7 @@ function AdminPostEdit() {
             <label htmlFor="content">Conteudo</label>
             <Field required as="textarea" id="content" name="content" placeholder="" />
 
-            <button type="submit">Atualizar</button>
+            <button className='buttonAtualizar' type="submit">Atualizar</button>
           </Form>
         </Formik>
       </FormWrapper>

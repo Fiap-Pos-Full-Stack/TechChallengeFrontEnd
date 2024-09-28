@@ -1,7 +1,7 @@
 import { PostThumb, PostWrapper, PostInfo, PostTitle, PostContent, PostOperations } from "./style"
 import { IPost } from "../../services/getPosts";
 import { parserDate } from "../../utils/parser";
-import { SmallLink } from "../ui/Links";
+import { SmallLink, SmallLinkEdit, SmallLinkDel } from "../ui/Links";
 import useAlert from "../../hooks/useAlert";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
@@ -24,8 +24,8 @@ const SinglePost = ({ post, isTeacherPublishier = false }: PostProps) => {
             <article className="w100" key={"post-" + post?.id}>
                 {
                     isTeacherPublishier && <PostOperations>
-                        <SmallLink onClick={() => onDeletePost(post?.id || 0)}>Deletar</SmallLink>
-                        <SmallLink href={"../../admin/post/edit/" + post?.id}>Editar</SmallLink>
+                        <SmallLinkDel onClick={() => onDeletePost(post?.id || 0)}>Deletar</SmallLinkDel>
+                        <SmallLinkEdit href={"../../admin/post/edit/" + post?.id}>Editar</SmallLinkEdit>
                     </PostOperations>
                 }
                 <PostTitle>{post?.title}</PostTitle>

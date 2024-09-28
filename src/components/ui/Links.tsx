@@ -20,8 +20,6 @@ export const Link = styled.a`
 
 `
 
-
-
 export const SmallLink = styled.a`
     background-color: rgb(${props=> props.theme.colors.primary});
     color: rgb(${props=> props.theme.colors.secondary});
@@ -38,12 +36,46 @@ export const SmallLink = styled.a`
     }
 `
 
+export const SmallLinkDel = styled.a`
+    background-color: rgb(${props=> props.theme.colors.error});
+    color: white;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    transition: all linear 0.2s;
+    cursor: pointer;
+
+    &:hover
+    {
+        color: white;
+        background-color: #5f0303;
+        transform: scale(1.2);
+    }
+`
+
+export const SmallLinkEdit = styled.a`
+    background-color: #1873D3;
+    color: white;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    transition: all linear 0.2s;
+    cursor: pointer;
+
+    &:hover
+    {
+        color: white;
+        background-color: #0a3664;
+        transform: scale(1.2);
+    }
+`
+
 
 
 
 export const BigLink = styled.a`
-    background-color: rgb(${props=> props.theme.colors.primary});
-    color: rgb(${props=> props.theme.colors.secondary});
+    background-color: rgb(${props=> props.theme.colors.sucess});
+    color: white;
     padding: 8px 8px;
     font-size: 1.6rem;
     border-radius: 5px;
@@ -56,8 +88,9 @@ export const BigLink = styled.a`
 
     &:hover
     {
-        color: rgb(${props=> props.theme.colors.primary});
-        background-color:rgb( ${props=> props.theme.colors.secondary});
+        color: white;
+        background-color: #034621;
+        transform: scale(1.2);
     }
 `
 
