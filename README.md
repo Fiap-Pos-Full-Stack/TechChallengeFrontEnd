@@ -53,6 +53,11 @@ Para finalizar o container
 
 No diretorio raiz do projeto, pode-se utilizar
 
+### `npm install`
+
+Para instalar as dependencias da aplicação
+
+
 ### `npm start`
 
 Roda a aplicação no endereço [http://localhost:3000](http://localhost:3000)
